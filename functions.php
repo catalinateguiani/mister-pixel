@@ -3,9 +3,22 @@
 function mister_pixel_theme_support() {
 
     add_theme_support('title-tag');
+    add_theme_support('custom-logo');
+}
+add_action('after_setup_theme', 'mister_pixel_theme_support');
+
+function mister_pixel_menus(){
+    $locations = array(
+        'primary'=> "Desktop Primary Left Sidebar",
+        'footer' =>"Footer Menu Items"
+    );
+
+    register_nav_menus($locations);
 }
 
-add_action('after_setup_theme', 'mister_pixel_theme_support');
+add_action('init', 'mister_pixel_menus');
+
+
 
 function mister_pixel_register_styles() {
 
